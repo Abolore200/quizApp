@@ -29,7 +29,7 @@ const url = fetch('./assets/json/questions.json')
                             document.querySelector('.questions .results').innerHTML = `
                                 <p style="color:green">Correct!!!</p>
                             `
-                            UI.disableInvalid([btn[1],btn[2]])
+                            UI.disableInvalid([btn[0],btn[1],btn[2]])
                             nextBtn.disabled = false
                             nextBtn.addEventListener('click', () => {
                                 UI.nextPage()
@@ -39,10 +39,12 @@ const url = fetch('./assets/json/questions.json')
                             document.querySelector('.questions .results').innerHTML = `
                                 <p style="color:red">Incorrect!!!</p>
                             `
-                            setTimeout(() => {
-                                const removeHint = document.querySelector('.questions .results p')
-                                removeHint.remove()
-                            },1000)
+                            UI.disableInvalid([btn[0],btn[1],btn[2]])
+                            nextBtn.disabled = false
+
+                            nextBtn.addEventListener('click', () => {
+                                UI.nextPage()
+                            })
                         }
                     })
                 })

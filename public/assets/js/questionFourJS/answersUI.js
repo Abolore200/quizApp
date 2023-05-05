@@ -5,6 +5,6 @@ class answersUI{
         })
     }
     nextPage(){
-        window.location.href = 'questionFour.html'
+        // window.location.href = 'questionFour.html'
     }
 }
