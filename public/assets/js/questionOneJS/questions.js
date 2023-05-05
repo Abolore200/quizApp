@@ -19,11 +19,9 @@ const url = fetch('./assets/json/questions.json')
                 document.querySelector('.answers .display-answers').innerHTML = html
 
                 const btn = Array.from(document.querySelectorAll('.answers .display-answers button'))
-                btn[0].style.backgroundColor = 'rgba(255, 0, 0, 0.8)'
-                btn[1].style.backgroundColor = 'rgba(0, 0, 255, 0.8)'
-                btn[2].style.backgroundColor = 'rgba(0, 128, 0, 0.8)'
-
-                btn[0].setAttribute('class', 'valid')
+                btn[0].className = "red valid"
+                btn[1].classList.add('blue')
+                btn[2].classList.add('green')
 
                 btn.forEach(clickBtn => {
                     clickBtn.addEventListener('click', (e) => {
@@ -34,14 +32,19 @@ const url = fetch('./assets/json/questions.json')
                             UI.disableInvalid([btn[1],btn[2]])
                             nextBtn.disabled = false
                             nextBtn.addEventListener('click', () => {
-                                UI.nextQuestion(data, nextBtn)
+                                UI.nextPage()
                             })
                         }
                         else {
                             document.querySelector('.questions .results').innerHTML = `
                                 <p style="color:red">Incorrect!!!</p>
                             `
+                            setTimeout(() => {
+                                const removeHint = document.querySelector('.questions .results p')
+                                removeHint.remove()
+                            },3000)
                         }
                     })
                 })
             })
+

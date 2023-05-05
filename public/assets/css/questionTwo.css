@@ -5,6 +5,7 @@ body{width:100%;font-family:'Poppins', Verdana, Geneva, Tahoma, sans-serif;}
     main{width:100%;margin-bottom:150px;}
     .question-answers{margin-top:100px;}
     .top-bar{display:flex;align-items:center;justify-content:space-between;width:95%;margin:50px auto 0;}
+    .three-dot{position:relative;}
     .three-dot button{border:none;background-color:transparent;padding:8px 13px;}
     .three-dot button i{font-size:30px;}
     .questions{text-align:center;}
@@ -22,4 +23,11 @@ body{width:100%;font-family:'Poppins', Verdana, Geneva, Tahoma, sans-serif;}
     .next-button .next{width:90%;margin:0 auto;}
     .next-button .next button{width:100%;background-color:#000;color:#fff;border-radius:30px;}
     .next-button .next button{font-family:'Inter';font-weight:700;font-size:25px;padding:20px 8px;}
+    .options-home{width:250px;margin-right:20px;position:absolute;z-index:999;margin-top:10px;right:999px;}
+    .options-home{transition:all .5s ease-in;}
+    .showOption{right:0px;transition:all .5s ease-in-out;}
+    .options-home ul{display:flex;flex-direction:column;padding:30px 15px;width:100%;}
+    .options-home ul{background-color:#fff;box-shadow:0px 0px 11px rgba(0, 0, 0, 0.25);border-radius:30px;}
+    .options-home ul li{list-style:none;margin:10px 0;}
+    .options-home ul li{font-family:'Inter';font-weight:400;font-size:20px;}
 }
