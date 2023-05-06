@@ -1,9 +1,5 @@
 const loader = document.querySelector('.displayLoader')
 const result = document.querySelector('.displayResult')
-document.addEventListener('DOMContentLoaded', () => {
-    loader.classList.add('displayNone')
-    result.classList.add('displayNone')
-})
 
 class answersUI{
     disableInvalid(disableButton){
@@ -27,15 +23,15 @@ class answersUI{
         } return this.displayAnswer(sum)
     }
     displayAnswer(sum){
-        loader.classList.remove('displayNone')
+        loader.style.display = 'block'
         let html = ''
         html += `
             <p>Total Score: <span>${sum}</span></p>
         `;
         document.querySelector('.showResult').innerHTML = html
         setTimeout(() => {
-            loader.classList.add('displayNone')
-            result.classList.remove('displayNone')
+            loader.style.display = 'none'
+            result.style.display = 'block'
         },3000)
     }
     getScore(){
