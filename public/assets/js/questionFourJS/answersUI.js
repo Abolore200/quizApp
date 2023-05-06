@@ -1,10 +1,17 @@
+const loader = document.querySelector('.displayLoader')
+const result = document.querySelector('.displayResult')
+document.addEventListener('DOMContentLoaded', () => {
+    loader.classList.add('displayNone')
+    result.classList.add('displayNone')
+})
+
 class answersUI{
     disableInvalid(disableButton){
         disableButton.forEach(button => {
             button.disabled = true
         })
     }
-    displayAnswer(){
+    getAnswer(){
         const totalScore = localStorage.getItem('score')
         let scoreJSON;
         scoreJSON = JSON.parse(totalScore)
@@ -17,9 +24,19 @@ class answersUI{
         let sum = 0;
         for(let i = 0; i < scoreLength; i++){
             sum += scoreJSON[i]
-        }
-        console.log(sum);
-        // return sum
+        } return this.displayAnswer(sum)
+    }
+    displayAnswer(sum){
+        loader.classList.remove('displayNone')
+        let html = ''
+        html += `
+            <p>Total Score: <span>${sum}</span></p>
+        `;
+        document.querySelector('.showResult').innerHTML = html
+        setTimeout(() => {
+            loader.classList.add('displayNone')
+            result.classList.remove('displayNone')
+        },3000)
     }
     getScore(){
         const valid = 100

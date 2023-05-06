@@ -33,7 +33,7 @@ const url = fetch('./assets/json/questions.json')
                             UI.disableInvalid([btn[0],btn[1],btn[2]])
                             nextBtn.disabled = false
                             nextBtn.addEventListener('click', () => {
-                                UI.displayAnswer()
+                                UI.getAnswer()
                             })
 
                             UI.getScore();
@@ -44,6 +44,10 @@ const url = fetch('./assets/json/questions.json')
                             `
                             UI.disableInvalid([btn[0],btn[1],btn[2]])
                             nextBtn.disabled = false
+
+                            nextBtn.addEventListener('click', () => {
+                                UI.getAnswer()
+                            })
                         }
                     })
                 })
