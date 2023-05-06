@@ -7,4 +7,22 @@ class answersUI{
     nextPage(){
         window.location.href = 'questionTwo.html'
     }
+    getScore(){
+        const valid = 100
+        this.saveScore(valid);
+    }
+    saveScore(btn){
+        let score = this.saveScoreLS()
+        score.push(btn)
+        localStorage.setItem('score', JSON.stringify(score))
+    }
+    saveScoreLS(){
+        let score;
+        let scoreLS = localStorage.getItem('score')
+        if(scoreLS === null){
+            score = []
+        } else {
+            score = JSON.parse(scoreLS)
+        } return score;
+    }
 }

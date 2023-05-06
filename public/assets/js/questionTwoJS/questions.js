@@ -34,6 +34,8 @@ const url = fetch('./assets/json/questions.json')
                             nextBtn.addEventListener('click', () => {
                                 UI.nextPage()
                             })
+
+                            UI.getScore();
                         }
                         else {
                             document.querySelector('.questions .results').innerHTML = `
