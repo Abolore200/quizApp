@@ -1,1 +1,3 @@
 #index 200
+# Local Netlify folder
+.netlify
