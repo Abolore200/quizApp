@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', () => {
 })
 
 //get the questions from JSON
-const url = fetch('./assets/json/questions.json')
+const url = fetch('../assets/json/questions.json')
             .then((data) => { return data.json() })
             .then((data) => {
 

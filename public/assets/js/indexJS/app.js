@@ -1,4 +1,4 @@
 const playnowBtn = document.querySelector('.play-now-button button')
 playnowBtn.addEventListener('click', () => {
-    window.location.href = 'questionOne.html'
+    window.location.href = './questions/questionOne.html'
 })
