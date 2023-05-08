@@ -9,7 +9,7 @@ class answersUI{
 
     //navigate to the next page
     nextPage(){
-        window.location.href = '5.html'
+        window.location.href = '20.html'
     }
 
     //100 points is given for each correct answer
