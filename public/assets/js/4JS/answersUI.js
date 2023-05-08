@@ -1,8 +1,5 @@
-const loader = document.querySelector('.displayLoader')
-const result = document.querySelector('.displayResult')
-
 class answersUI{
-    
+
     //disable all answer buttons when clicked
     disableInvalid(disableButton){
         disableButton.forEach(button => {
@@ -10,37 +7,9 @@ class answersUI{
         })
     }
 
-    //get the total score from the localStorage
-    getAnswer(){
-        const totalScore = localStorage.getItem('score')
-        let scoreJSON;
-        scoreJSON = JSON.parse(totalScore)
-        
-        let scoreLength = scoreJSON.length
-        this.getScoreLength(scoreJSON,scoreLength)
-
-    }
-
-    //sum the all score from localStorage and give the output
-    getScoreLength(scoreJSON, scoreLength){
-        let sum = 0;
-        for(let i = 0; i < scoreLength; i++){
-            sum += scoreJSON[i]
-        } return this.displayAnswer(sum)
-    }
-
-    //display the answer
-    displayAnswer(sum){
-        loader.style.display = 'block'
-        let html = ''
-        html += `
-            <p>Total Score: <span>${sum}</span></p>
-        `;
-        document.querySelector('.showResult').innerHTML = html
-        setTimeout(() => {
-            loader.style.display = 'none'
-            result.style.display = 'block'
-        },3000)
+    //navigate to the next page
+    nextPage(){
+        window.location.href = '20.html'
     }
 
     //100 points is given for each correct answer

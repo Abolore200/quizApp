@@ -5,15 +5,3 @@ iconBarBtn.addEventListener('click', (e) => {
         optionHome.classList.toggle('showOption')
     }
 })
-
-const closeResult = document.querySelector('.result .closeBtn #close')
-
-closeResult.addEventListener('click', (e) => {
-
-    const closeHome = e.target.parentElement.parentElement.parentElement.parentElement
-    closeHome.remove()
-
-    window.location.href = '../index.html'
-
-    localStorage.removeItem('score')
-})

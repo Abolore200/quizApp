@@ -1,7 +1,8 @@
-const nextBtn = document.querySelector('#nextBtn')
+const totalScoreBtn = document.querySelector('#totalScore')
 document.addEventListener('DOMContentLoaded', () => {
     //onload of the page, disable the button
-    nextBtn.disabled = true
+    totalScoreBtn.disabled = true
+    totalScoreBtn.className ='bgColor'
 })
 
 //get the questions from JSON
@@ -12,15 +13,14 @@ const url = fetch('../assets/json/questions.json')
                 const UI = new answersUI()
 
                 //insert the question from JSON file into the <p>
-                document.querySelector('.questions p').innerHTML = data[0]?.[3]?.question
+                document.querySelector('.questions p').innerHTML = data[0]?.[4]?.question
 
                 //insert the answers from JSON file
-                const answerArray = data[0]?.[3].answer
+                const answerArray = data[0]?.[4].answer
                 let html = ''
-
+                
                 //looping all the answers
                 for(let i = 0; i < answerArray.length; i++){
-
                     //creating buttons to insert the answers into
                     html += `
                         <button> ${answerArray[i]} </button>
@@ -31,8 +31,8 @@ const url = fetch('../assets/json/questions.json')
                 document.querySelector('.answers .display-answers').innerHTML = html
 
                 const btn = Array.from(document.querySelectorAll('.answers .display-answers button'))
-                btn[1].className = "red valid"
-                btn[0].classList.add('blue')
+                btn[0].className = "red valid"
+                btn[1].classList.add('blue')
                 btn[2].classList.add('green')
 
                 //when each of the button is clicked
@@ -48,12 +48,12 @@ const url = fetch('../assets/json/questions.json')
                             //function to disable all answer buttons when clicked
                             UI.disableInvalid([btn[0],btn[1],btn[2]])
 
-                            //enable the next button
-                            nextBtn.disabled = false
+                            //enable the totalscore button
+                            totalScoreBtn.disabled = false
 
-                            //function to navigate to next page
-                            nextBtn.addEventListener('click', () => {
-                                UI.nextPage()
+                            //function to sum the total score
+                            totalScoreBtn.addEventListener('click', () => {
+                                UI.getAnswer()
                             })
 
                             UI.getScore();
@@ -67,11 +67,11 @@ const url = fetch('../assets/json/questions.json')
 
                             //disable all answer buttons when clicked
                             UI.disableInvalid([btn[0],btn[1],btn[2]])
-                            nextBtn.disabled = false
 
                             //enable the next button
-                            nextBtn.addEventListener('click', () => {
-                                UI.nextPage()
+                            totalScoreBtn.disabled = false
+                            totalScoreBtn.addEventListener('click', () => {
+                                UI.getAnswer()
                             })
                         }
                     })
