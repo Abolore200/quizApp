@@ -12,9 +12,12 @@ exitBtn.addEventListener('click', () => {
 
 const siteUrl = 'aboquizapp.netlify.app'
 options[1].innerHTML = `
-    <a
-        href="https://twitter.com/intent/tweet?text=Visit%20our%20website%20to%20play%20at%20${siteUrl}"
+    <a 
+        href="https://twitter.com/intent/tweet?text=Visit%20our%20website%20to%20play%20at%20${siteUrl}" 
         target="_blank">
-            Share via ...
+            Share
     </a>
 `
+
+const shareBtn = document.querySelector('.options-home ul li a')
+shareBtn.className = 'add'
