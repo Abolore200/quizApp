@@ -78,4 +78,3 @@ const url = fetch('../assets/json/questions.json')
                     })
                 })
             })
-
