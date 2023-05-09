@@ -4,77 +4,81 @@ document.addEventListener('DOMContentLoaded', () => {
     nextBtn.disabled = true
 })
 
-//get the questions from JSON
-const url = fetch('../assets/json/questions.json')
-            .then((data) => { return data.json() })
-            .then((data) => {
+//auto generate random numbers
+const randomMin = Math.floor(Math.random() * 50)
 
-                //
-                const UI = new answersUI()
+//auto generate random numbers
+const randomMax = Math.floor(Math.random() * 50)
 
-                //insert the question from JSON file into the <p>
-                document.querySelector('.questions p').innerHTML = data[0]?.[0]?.question
 
-                //insert the answers from JSON file
-                const answerArray = data[0]?.[0].answer
-                let html = ''
 
-                //looping all the answers
-                for(let i = 0; i < answerArray.length; i++){
+//insert the question from JSON file into the <p>
+document.querySelector('.questions p').innerHTML = `${randomMin} + ${randomMax}`
 
-                    //creating buttons to insert the answers into
-                    html += `
-                        <button> ${answerArray[i]} </button>
-                    `
-                }
+//insert the answers from JSON file
+const answerOne = Math.floor(Math.random() * 999)
+const answerTwo = Math.floor(Math.random() * 999)
+const answerThree = randomMin + randomMax
 
-                //insert the answers into the html page
-                document.querySelector('.answers .display-answers').innerHTML = html
+const allAnswers = Array.from([answerThree, answerOne, answerTwo])
 
-                const btn = Array.from(document.querySelectorAll('.answers .display-answers button'))
-                btn[0].className = "red valid"
-                btn[1].classList.add('blue')
-                btn[2].classList.add('green')
+let html = ''
 
-                //when each of the button is clicked
-                btn.forEach(clickBtn => {
-                    clickBtn.addEventListener('click', (e) => {
+//looping all the answers
+for(let i = 0; i < allAnswers.length; i++){
 
-                        //validate the answer, if correct
-                        if(e.target.classList.contains('valid')){
-                            document.querySelector('.questions .results').innerHTML = `
-                                <p style="color:green">Correct!!!</p>
-                            `
+    //creating buttons to insert the answers into
+    html += `
+        <button> ${allAnswers[i]} </button>
+    `
+}
 
-                            //function to disable all answer buttons when clicked
-                            UI.disableInvalid([btn[0],btn[1],btn[2]])
+//insert the answers into the html page
+document.querySelector('.answers .display-answers').innerHTML = html
 
-                            //enable the next button
-                            nextBtn.disabled = false
+const btn = Array.from(document.querySelectorAll('.answers .display-answers button'))
+btn[0].className = "red valid"
+btn[1].classList.add('blue')
+btn[2].classList.add('green')
 
-                            //function to navigate to next page
-                            nextBtn.addEventListener('click', () => {
-                                UI.nextPage()
-                            })
+//when each of the button is clicked
+btn.forEach(clickBtn => {
+    clickBtn.addEventListener('click', (e) => {
 
-                            UI.getScore();
-                        }
+        //validate the answer, if correct
+        if(e.target.classList.contains('valid')){
+            document.querySelector('.questions .results').innerHTML = `
+                <p style="color:green">Correct!!!</p>
+            `
 
-                        //invalidate the answers, if incorrect
-                        else {
-                            document.querySelector('.questions .results').innerHTML = `
-                                <p style="color:red">Incorrect!!!</p>
-                            `
+            //function to disable all answer buttons when clicked
+            UI.disableInvalid([btn[0],btn[1],btn[2]])
 
-                            //disable all answer buttons when clicked
-                            UI.disableInvalid([btn[0],btn[1],btn[2]])
+            //enable the next button
+            nextBtn.disabled = false
 
-                            //enable the next button
-                            nextBtn.disabled = false
-                            nextBtn.addEventListener('click', () => {
-                                UI.nextPage()
-                            })
-                        }
-                    })
-                })
+            //function to navigate to next page
+            nextBtn.addEventListener('click', () => {
+                UI.nextPage()
             })
+
+            UI.getScore();
+        }
+
+        //invalidate the answers, if incorrect
+        else {
+            document.querySelector('.questions .results').innerHTML = `
+                <p style="color:red">Incorrect!!!</p>
+            `
+
+            //disable all answer buttons when clicked
+            UI.disableInvalid([btn[0],btn[1],btn[2]])
+
+            //enable the next button
+            nextBtn.disabled = false
+            nextBtn.addEventListener('click', () => {
+                UI.nextPage()
+            })
+        }
+    })
+})

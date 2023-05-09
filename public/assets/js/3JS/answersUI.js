@@ -36,3 +36,5 @@ class answersUI{
         } return score;
     }
 }
+
+const UI = new answersUI()

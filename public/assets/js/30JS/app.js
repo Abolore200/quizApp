@@ -15,9 +15,5 @@ closeResult.addEventListener('click', (e) => {
 
     window.location.href = '../index.html'
 
-    // localStorage.removeItem('score')
-})
-
-if(window.location.href = "../index.html"){
     localStorage.removeItem('score')
-}
+})
