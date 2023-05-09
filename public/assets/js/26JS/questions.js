@@ -12,10 +12,10 @@ const url = fetch('../assets/json/questions.json')
                 const UI = new answersUI()
 
                 //insert the question from JSON file into the <p>
-                document.querySelector('.questions p').innerHTML = data[0]?.[20]?.question
+                document.querySelector('.questions p').innerHTML = data[0]?.[26]?.question
 
                 //insert the answers from JSON file
-                const answerArray = data[0]?.[20].answer
+                const answerArray = data[0]?.[26].answer
                 let html = ''
 
                 //looping all the answers

@@ -12,10 +12,10 @@ const url = fetch('../assets/json/questions.json')
                 const UI = new answersUI()
 
                 //insert the question from JSON file into the <p>
-                document.querySelector('.questions p').innerHTML = data[0]?.[20]?.question
+                document.querySelector('.questions p').innerHTML = data[0]?.[22]?.question
 
                 //insert the answers from JSON file
-                const answerArray = data[0]?.[20].answer
+                const answerArray = data[0]?.[22].answer
                 let html = ''
 
                 //looping all the answers
@@ -31,9 +31,9 @@ const url = fetch('../assets/json/questions.json')
                 document.querySelector('.answers .display-answers').innerHTML = html
 
                 const btn = Array.from(document.querySelectorAll('.answers .display-answers button'))
-                btn[2].className = "red valid"
-                btn[1].classList.add('blue')
-                btn[0].classList.add('green')
+                btn[0].className = "red valid"
+                btn[2].classList.add('blue')
+                btn[1].classList.add('green')
 
                 //when each of the button is clicked
                 btn.forEach(clickBtn => {
