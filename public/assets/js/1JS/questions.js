@@ -18,9 +18,9 @@ document.querySelector('.questions p').innerHTML = `${randomMin} + ${randomMax}`
 //insert the answers from JSON file
 const answerOne = Math.floor(Math.random() * 999)
 const answerTwo = Math.floor(Math.random() * 999)
-const answerThree = randomMin + randomMax
+const correct = randomMin + randomMax
 
-const allAnswers = Array.from([answerThree, answerOne, answerTwo])
+const allAnswers = Array.from([correct, answerOne, answerTwo])
 
 let html = ''
 
