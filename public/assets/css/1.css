@@ -34,7 +34,6 @@ body{width:100%;font-family:'Poppins', Verdana, Geneva, Tahoma, sans-serif;}
     .answers .display-answers button.red{background-color:rgba(255, 0, 0, 0.8);}
     .answers .display-answers button.blue{background-color:rgba(0, 0, 255, 0.8);}
     .answers .display-answers button.green{background-color:rgba(0, 128, 0, 0.8);}
-
     .displayLoader{position:fixed;height:100%;width:100%;background-color:rgba(128, 128, 128, .4)}
     .displayLoader{transform:translate(-50%, -50%);top:50%;left:50%;}
     .displayLoader .loader{width:100px;height:100px;border:10px solid blue;border-radius:100%;margin:0 auto;}
