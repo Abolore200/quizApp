@@ -23,22 +23,28 @@ const allAnswers = Array.from([answerTwo, answerOne, correct])
 
 let html = ''
 
-//looping all the answers
-for(let i = 0; i < allAnswers.length; i++){
+//randomize the answers
+function shuffle(allAnswers){
+    const nums = allAnswers.sort(() => Math.random() - 0.5)
+    
+    for(let i = 0; i < nums.length; i++){
 
-    //creating buttons to insert the answers into
-    html += `
-        <button> ${allAnswers[i]} </button>
-    `
+        //creating buttons to insert the answers into
+        html += `
+            <button class="${nums[i]}"> ${nums[i]} </button>
+        `
+    }
 }
+shuffle(allAnswers)
 
 //insert the answers into the html page
 document.querySelector('.answers .display-answers').innerHTML = html
 
 const btn = Array.from(document.querySelectorAll('.answers .display-answers button'))
-btn[2].className = `${correct} red`
-btn[0].className = `${answerTwo} blue`
-btn[1].className = `${answerOne} green`
+
+btn[2].style.backgroundColor = "red"
+btn[1].style.backgroundColor = "blue"
+btn[0].style.backgroundColor = "green"
 
 //when each of the button is clicked
 btn.forEach(clickBtn => {
