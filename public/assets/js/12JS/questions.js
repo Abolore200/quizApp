@@ -35,16 +35,16 @@ html += `
 document.querySelector('.answers .display-answers').innerHTML = html
 
 const btn = Array.from(document.querySelectorAll('.answers .display-answers button'))
-btn[1].className = "red valid"
-btn[2].classList.add('blue')
-btn[0].classList.add('green')
+btn[1].className = `${correct} red`
+btn[2].className = `${answerTwo} blue`
+btn[0].className = `${answerOne} green`
 
 //when each of the button is clicked
 btn.forEach(clickBtn => {
     clickBtn.addEventListener('click', (e) => {
 
         //validate the answer, if correct
-        if(e.target.classList.contains('valid')){
+        if(e.target.classList.contains(`${correct}`)){
             document.querySelector('.questions .results').innerHTML = `
                 <p style="color:green">Correct!!!</p>
             `
