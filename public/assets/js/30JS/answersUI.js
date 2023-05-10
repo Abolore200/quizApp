@@ -13,12 +13,29 @@ class answersUI{
     //get the total score from the localStorage
     getAnswer(){
         const totalScore = localStorage.getItem('score')
+
+        if(totalScore === null || totalScore === []){
+            this.showEmptyScore()
+        }
         let scoreJSON;
         scoreJSON = JSON.parse(totalScore)
         
         let scoreLength = scoreJSON.length
         this.getScoreLength(scoreJSON,scoreLength)
 
+    }
+    //if users fail to score all question, score them zero
+    showEmptyScore(){
+        loader.style.display = 'block'
+        let html = ''
+        html += `
+            <p>Total Score: <span> 0 </span></p>
+        `;
+        document.querySelector('.showResult').innerHTML = html
+        setTimeout(() => {
+            loader.style.display = 'none'
+            result.style.display = 'block'
+        },3000)
     }
 
     //sum the all score from localStorage and give the output
