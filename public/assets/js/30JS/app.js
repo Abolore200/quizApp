@@ -6,9 +6,9 @@ iconBarBtn.addEventListener('click', (e) => {
     }
 })
 
-const closeResult = document.querySelector('.result .closeBtn #close')
+const closeResults = document.querySelector('.result .closeBtn #close')
 
-closeResult.addEventListener('click', (e) => {
+closeResults.addEventListener('click', (e) => {
 
     const closeHome = e.target.parentElement.parentElement.parentElement.parentElement
     closeHome.remove()

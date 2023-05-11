@@ -1,5 +1,5 @@
-const loader = document.querySelector('.displayLoader')
-const result = document.querySelector('.displayResult')
+const loaders = document.querySelector('.displayLoader')
+const results = document.querySelector('.displayResult')
 
 class answersUI{
     
@@ -26,15 +26,15 @@ class answersUI{
     }
     //if users fail to score all question, score them zero
     showEmptyScore(){
-        loader.style.display = 'block'
+        loaders.style.display = 'block'
         let html = ''
         html += `
             <p>Total Score: <span> 0 </span></p>
         `;
         document.querySelector('.showResult').innerHTML = html
         setTimeout(() => {
-            loader.style.display = 'none'
-            result.style.display = 'block'
+            loaders.style.display = 'none'
+            results.style.display = 'block'
         },3000)
     }
 
@@ -48,15 +48,15 @@ class answersUI{
 
     //display the answer
     displayAnswer(sum){
-        loader.style.display = 'block'
+        loaders.style.display = 'block'
         let html = ''
         html += `
             <p>Total Score: <span>${sum}</span></p>
         `;
         document.querySelector('.showResult').innerHTML = html
         setTimeout(() => {
-            loader.style.display = 'none'
-            result.style.display = 'block'
+            loaders.style.display = 'none'
+            results.style.display = 'block'
         },3000)
     }
 
